@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import { UserLogout } from '../service/api';
 
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -47,7 +48,19 @@ const Navbar = () => {
       alert("You need to log in first!"); // Show alert if the user is not logged in
     }
   };
-
+  const handleLogout = async () => {
+    try {
+      const response = await UserLogout();
+      if (response && response.status === 200) {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user'); 
+        setUser(null); 
+        navigate('/'); 
+      }
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
+  };
   return (
     <nav className="bg-gray-900 text-white px-4 md:px-10 py-3 shadow-lg relative">
       <div className="container mx-auto flex justify-between items-center">
@@ -93,12 +106,7 @@ const Navbar = () => {
                     <p className="font-semibold">{user.fullName || 'Guest'}</p>
                   </div>
                   <button
-                    onClick={() => {
-                      localStorage.removeItem('token');
-                      localStorage.removeItem('user');
-                      setUser(null);
-                      navigate('/');
-                    }}
+                   onClick={handleLogout}
                     className="w-full text-left px-4 py-2 hover:bg-gray-100"
                   >
                     Logout
@@ -136,10 +144,7 @@ const Navbar = () => {
             Home
           </Link>
           <button
-            onClick={() => {
-              handleCreateClick();
-              toggleSidebar();
-            }}
+         onClick={handleLogout}
             className="hover:text-gray-300 transition duration-300"
           >
             Create Employee

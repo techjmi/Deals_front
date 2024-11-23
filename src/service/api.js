@@ -98,9 +98,9 @@ export const Delete_Emp = async (id) => {
   }
 };
 export const UserLogout = async () => {
+  console.log('logout called')
   try {
     const response = await axios.post(`${url_user}/logout`, null, {
-      withCredentials: true,
     });
     return response;
   } catch (error) {
