@@ -1,7 +1,9 @@
 import axios from "axios";
 
-const url_user = "http://localhost:8000/api/auth";
-const url_emp = "http://localhost:8000/api/employee";
+// const url_user = "http://localhost:8000/api/auth";
+// const url_emp = "http://localhost:8000/api/employee";
+const url_user="https://deals-dray-backend.onrender.com/api/auth"
+const url_emp='https://deals-dray-backend.onrender.com/api/employee'
 
 // Post signup data
 export const PostSignUp = async (data) => {
