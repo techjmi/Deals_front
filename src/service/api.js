@@ -103,8 +103,9 @@ export const UserLogout = async () => {
   console.log('logout called')
   try {
     const response = await axios.post(`${url_user}/logout`, null, {
+      // withCredentials: true,
       withCredentials: true,
-      credentials: 'same-origin'
+      // credentials: 'same-origin'
     });
     return response;
   } catch (error) {
