@@ -34,6 +34,8 @@ export const PostSignIn = async (data) => {
 export const CreateEmpl = async (data) => {
   try {
     const response = await axios.post(`${url_emp}/create`, data, {
+      // withCredentials: true,
+      credentials: 'include',
       withCredentials: true,
     });
     return response;
@@ -102,6 +104,7 @@ export const UserLogout = async () => {
   try {
     const response = await axios.post(`${url_user}/logout`, null, {
       withCredentials: true,
+      credentials: 'same-origin'
     });
     return response;
   } catch (error) {
