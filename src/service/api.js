@@ -20,8 +20,8 @@ export const PostSignUp = async (data) => {
 export const PostSignIn = async (data) => {
   try {
     const response = await axios.post(`${url_user}/login`, data, {
-      credentials: 'include',
-      withCredentials: true,
+      // credentials: 'include',
+      // withCredentials: true,
     });
     return response;
   } catch (error) {
@@ -35,8 +35,8 @@ export const CreateEmpl = async (data) => {
   try {
     const response = await axios.post(`${url_emp}/create`, data, {
       // withCredentials: true,
-      credentials: 'include',
-      withCredentials: true,
+      // credentials: 'include',
+      // withCredentials: true,
     });
     return response;
   } catch (error) {
