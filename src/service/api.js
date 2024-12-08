@@ -49,8 +49,8 @@ export const CreateEmpl = async (data) => {
 export const allEmp = async () => {
   try {
     const response = await axios.get(`${url_emp}/emp_list`, {
-      credentials: 'include',
-      withCredentials: true,
+      // credentials: 'include',
+      // withCredentials: true,
       // withCredentials: true,
     });
     return response.data;
@@ -65,7 +65,7 @@ export const allEmp = async () => {
 export const SingleEmp = async (id) => {
   try {
     const response = await axios.get(`${url_emp}/employee/${id}`, {
-      withCredentials: true,
+      // withCredentials: true,
     });
     return response.data;
   } catch (error) {
@@ -78,7 +78,7 @@ export const SingleEmp = async (id) => {
 export const EditEmpApi = async (id, data) => {
   try {
     const response = await axios.put(`${url_emp}/emp_edit/${id}`, data, {
-      withCredentials: true,
+      // withCredentials: true,
     });
     return response;
   } catch (error) {
@@ -91,7 +91,7 @@ export const EditEmpApi = async (id, data) => {
 export const Delete_Emp = async (id) => {
   try {
     const response = await axios.delete(`${url_emp}/emp_delete/${id}`, {
-      withCredentials: true,
+      // withCredentials: true,
     });
     return response.data;
   } catch (error) {
